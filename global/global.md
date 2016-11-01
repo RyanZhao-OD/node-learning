@@ -28,22 +28,20 @@
 ##process对象
 * 目录
 ```js
-process.cwd();        //current working directory
+__dirname;             // 文件目录不会变
+process.cwd();        //current working directory在哪里执行(可变)
 process.chdir('..');  //change directory
+
 ```
 
 ```js
-console.log(process.cwd()); // 在哪里执行(可变)
-console.log(__dirname);     // 文件目录不会变
-process.chdir('..');
-console.log(process.cwd());
-console.log(__dirname);
+console.log(process.cwd());  // H:\04.learning\node-learning
+console.log(__dirname);      // H:\04.learning\node-learning\global
+process.chdir('..');         
+console.log(process.cwd());  // H:\04.learning
+console.log(__dirname);      // H:\04.learning\node-learning\global
 ```
 
-> H:\04.learning\node-learning
-> H:\04.learning\node-learning\global
-> H:\04.learning
-> H:\04.learning\node-learning\global
 
 * nextTick()方法
 > 服务有两个小本 他是当前小本的底部
