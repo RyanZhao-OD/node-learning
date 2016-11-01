@@ -19,10 +19,10 @@
     return module.exports;
 })();
 ```
-> require:'需要',
-> exports:'导出'，
-> module:'模块'
-> __dirname:'所在的目录名路径 
+> require 需要
+> exports 导出
+> module模块
+> __dirname 所在的目录名路径
 > __filename 文件的名字路径 
 
 ##process对象
@@ -31,6 +31,7 @@
 process.cwd();        //current working directory
 process.chdir('..');  //change directory
 ```
+
 ```js
 console.log(process.cwd()); // 在哪里执行(可变)
 console.log(__dirname);     // 文件目录不会变
