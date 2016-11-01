@@ -15,12 +15,12 @@ function Child() {}
 //原型链继承
 //Child.prototype.__proto__ = Parent.prototype;
 //Child.prototype = Object.create(Parent.prototype);
-/*Object.setPrototypeOf = function (cprop,superprop) {
+/*Object.setPrototypeOf = function (cprop,superprop) {   //setPrototypeOf实现
  cprop.__proto__ = superprop;
  return {};
  };*/
 //Object.setPrototypeOf(Child.prototype,Parent.prototype);
-//util.inherits(Child,Parent); //子类继承父类的原型上的方法
+util.inherits(Child, Parent); //子类继承父类的原型上的方法
 var child = new Child();
 
 
