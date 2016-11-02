@@ -1,15 +1,16 @@
 ##global对象
-> global对象  在任何地方都能访问
-> 重要的属性:
-> * process 进程
-> * Buffer 缓存
-> * clearImmediate
-> * clearInterval: [Function],
-> * clearTimeout: [Function],
-> * setImmediate: [Function],
-> * setInterval: [Function],
-> * setTimeout: [Function],
-> * console: [Getter],
+global对象  在任何地方都能访问
+
+重要的属性:
+- process 进程
+- Buffer 缓存
+- clearImmediate
+- clearInterval: [Function],
+- clearTimeout: [Function],
+- setImmediate: [Function],
+- setInterval: [Function],
+- setTimeout: [Function],
+- console: [Getter],
 
 ##每个文件会自动做以下封装
 ```javascript
@@ -20,11 +21,11 @@
 })();
 ```
 
-> require 需要
-> exports 导出
-> module模块
-> __dirname 所在的目录名路径
-> __filename 文件的名字路径 
+- require 需要
+- exports 导出
+- module模块
+- __dirname 所在的目录名路径
+- __filename 文件的名字路径 
 
 
 ##process对象
@@ -47,7 +48,7 @@ console.log(__dirname);      // H:\04.learning\node-learning\global
 
 * nextTick()方法
 
-> 服务有两个小本 他是当前小本的底部
+服务有两个小本 他是当前小本的底部
 
 ##setImmediate()方法
 > setImmediate是一个异步方法，并且后面不能指定时间
@@ -71,8 +72,7 @@ setImmediate(function () {
     console.log('setImmediate3');
 });
 ```
-
-> 结果:
+运行结果：
 > nextTick2
 > setImmediate1
 > setImmediate3
