@@ -18,24 +18,24 @@
 
 // nextTick > setImmediate > setTimeout > io
 
-setImmediate(function () {
-    console.log('setImmediate1');
-    process.nextTick(function () {
-        console.log('nextTick1');
+setImmediate(function A() {
+    console.log('A');
+    process.nextTick(function B() {
+        console.log('B');
     })
 });
-process.nextTick(function () {
-    console.log('nextTick2');
-    setImmediate(function () {
-        console.log('setImmediate2');
+process.nextTick(function C() {
+    console.log('C');
+    setImmediate(function D() {
+        console.log('D');
     })
 });
-setImmediate(function () {
-    console.log('setImmediate3');
+setImmediate(function E() {
+    console.log('E');
 });
 
-// nextTick2
-// setImmediate1
-// setImmediate3
-// setImmediate2
-// nextTick1
+// C
+// A
+// E
+// D
+// B
