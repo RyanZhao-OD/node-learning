@@ -12,18 +12,20 @@
 > * console: [Getter],
 
 ##每个文件会自动做以下封装
-```js
+```javascript
 (function (require, exports, module, __dirname, __filename) {
     this = module.exports = exports = {};
     // ...
     return module.exports;
 })();
 ```
+
 > require 需要
 > exports 导出
 > module模块
 > __dirname 所在的目录名路径
 > __filename 文件的名字路径 
+
 
 ##process对象
 * 目录
@@ -44,6 +46,7 @@ console.log(__dirname);      // H:\04.learning\node-learning\global
 
 
 * nextTick()方法
+
 > 服务有两个小本 他是当前小本的底部
 
 ##setImmediate()方法
@@ -51,7 +54,7 @@ console.log(__dirname);      // H:\04.learning\node-learning\global
 > 在setTimeout没有给时间的时候 setImmediate是给setTimeout一些机会的
 > nextTick > setImmediate > setTimeout > io
 
-```js
+```javascript
 setImmediate(function () {
     console.log('setImmediate1');
     process.nextTick(function () {
@@ -68,6 +71,7 @@ setImmediate(function () {
     console.log('setImmediate3');
 });
 ```
+
 > 结果:
 > nextTick2
 > setImmediate1
