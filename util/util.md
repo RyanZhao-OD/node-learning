@@ -4,11 +4,14 @@ var util = require('util');
 ```
 
 ##方法
-* 继承
+- 继承
+
 ```js
 util.inherits(Child, Parent)
 ```
-> 实现如下:
+
+实现如下:
+
 ```js
 exports.inherits = function(ctor, superCtor) {
 
@@ -29,12 +32,12 @@ exports.inherits = function(ctor, superCtor) {
 };
 ```
 
-* 解析
+- 解析
 ```js
 util.inspect()   // console.dir默认调用的方法
 ```
 
-* 检测数据类型
+- 检测数据类型
 ```js
 util.isArray([]);
 util.isBoolean([]);
