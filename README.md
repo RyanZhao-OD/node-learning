@@ -1,4 +1,12 @@
 ![profile](resource/profile.png)
+## node的event loop
+![profile](resource/event-loop-node.png)
+> Node.js也是单线程的Event Loop，但是它的运行机制不同于浏览器环境。Node.js的运行机制如下。
+（1）V8引擎解析JavaScript脚本。
+（2）解析后的代码，调用Node API。
+（3）libuv库负责Node API的执行。它将不同的任务分配给不同的线程，形成一个Event Loop（事件循环），以异步的方式将任务的执行结果返回给V8引擎。
+（4）V8引擎再将结果返回给用户。
+
 ##模块化
 - cmd: seajs  
 - amd: requirejs 
@@ -18,60 +26,3 @@
 > 队列按加入的顺序
 > 
 > 小本的概念
-
-## 模块
-- 核心模块
-- 文件模块
-- 第三方模块
-
-## require对象
-require多次引用同一个模块不会被重复加载
-require是同步的
-
-- 缓存对象 require.cache
-```js
-{ 'H:\04.learning\node-learning\module\test-cache.js': 
-   Module {
-     id: '.',
-     exports: {},
-     parent: null,
-     filename: 'H:\\04.learning\\node-learning\\module\\test-cache.js',
-     loaded: false,
-     children: [ [Object] ],
-     paths: 
-      [ 'H:\\04.learning\\node-learning\\module\\node_modules',
-        'H:\\04.learning\\node-learning\\node_modules',
-        'H:\\04.learning\\node_modules',
-        'H:\\node_modules' ] },
-  'H:\04.learning\node-learning\module\cache.js': 
-   Module {
-     id: 'H:\\04.learning\\node-learning\\module\\cache.js',
-     exports: {},
-     parent: 
-      Module {
-        id: '.',
-        exports: {},
-        parent: null,
-        filename: 'H:\\04.learning\\node-learning\\module\\test-cache.js',
-        loaded: false,
-        children: [Object],
-        paths: [Object] },
-     filename: 'H:\\04.learning\\node-learning\\module\\cache.js',
-     loaded: true,
-     children: [],
-     paths: 
-      [ 'H:\\04.learning\\node-learning\\module\\node_modules',
-        'H:\\04.learning\\node-learning\\node_modules',
-        'H:\\04.learning\\node_modules',
-        'H:\\node_modules' ] } }
-```
-
-- 构建绝对路径
-```js
-require.resolve('./cache.js');    // H:\04.learning\node-learning\module\cache.js
-```
-
-- 删除缓存对象
-```js
-delete require.cache[require.resolve('./cache.js')];
-```

@@ -51,9 +51,9 @@ console.log(__dirname);      // H:\04.learning\node-learning\global
 服务有两个小本 他是当前小本的底部
 
 ##setImmediate()方法
-> setImmediate是一个异步方法，并且后面不能指定时间
-> 在setTimeout没有给时间的时候 setImmediate是给setTimeout一些机会的
-> nextTick > setImmediate > setTimeout > io
+setImmediate是一个异步方法，并且后面不能指定时间
+在setTimeout没有给时间的时候 setImmediate是给setTimeout一些机会的
+nextTick > setImmediate > setTimeout > io
 
 ```javascript
 setImmediate(function () {
@@ -73,8 +73,10 @@ setImmediate(function () {
 });
 ```
 运行结果：
-> nextTick2
-> setImmediate1
-> setImmediate3
-> setImmediate2
-> nextTick1
+```js
+nextTick2
+setImmediate1
+setImmediate3
+setImmediate2
+nextTick1
+```
