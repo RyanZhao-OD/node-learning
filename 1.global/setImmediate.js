@@ -19,23 +19,35 @@
 // nextTick > setImmediate > setTimeout > io
 
 setImmediate(function A() {
-    console.log('A');
+    console.log('a');
     process.nextTick(function B() {
-        console.log('B');
-    })
+        console.log('b');
+        setImmediate(function C() {
+            console.log('c');
+        });
+        console.log('bb');
+    });
+    console.log('aa');
 });
-process.nextTick(function C() {
-    console.log('C');
-    setImmediate(function D() {
-        console.log('D');
-    })
+process.nextTick(function D() {
+    console.log('d');
+    setImmediate(function E() {
+        console.log('e');
+        process.nextTick(function F() {
+            console.log('f');
+        });
+        console.log('ee');
+    });
+    console.log('dd');
 });
-setImmediate(function E() {
-    console.log('E');
+setImmediate(function G() {
+    console.log('g');
 });
 
-// C
-// A
-// E
-// D
-// B
+// c
+// cc
+// a
+// aa
+// e
+// d
+// b
