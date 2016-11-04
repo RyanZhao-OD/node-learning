@@ -25,9 +25,7 @@ setImmediate(function A() {
         setImmediate(function C() {
             console.log('c');
         });
-        console.log('bb');
     });
-    console.log('aa');
 });
 process.nextTick(function D() {
     console.log('d');
@@ -36,18 +34,16 @@ process.nextTick(function D() {
         process.nextTick(function F() {
             console.log('f');
         });
-        console.log('ee');
     });
-    console.log('dd');
 });
 setImmediate(function G() {
     console.log('g');
 });
 
-// c
-// cc
-// a
-// aa
-// e
 // d
+// a
+// g
+// e
 // b
+// f
+// c
