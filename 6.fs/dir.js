@@ -5,6 +5,14 @@ var fs = require('fs');
 // console.log('a/b/c/d');
 // fs.mkdir();
 
+
+// p 'a/b/c/d'
+// arr ['a','b', 'c' , 'd']
+// path a   ['a']
+// path a/b  ['a', 'b']
+// path a/b/c  ['a', 'b', 'c']
+// path a/b/c/d  ['a', 'b', 'c', 'd']
+
 function makepSync(p) {
     var arr = p.split('/');
     var path;
@@ -39,6 +47,7 @@ function makep(p) {
     });
 }
 makep('a/b/c/d');
+
 // fs.exists('testdir', function(exists) {   //没有error参数
 //
 // });
