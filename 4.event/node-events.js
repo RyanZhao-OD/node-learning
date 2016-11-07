@@ -1,7 +1,7 @@
 // node给我提供了一个自带的时间模块(核心模块)
-
-var EventEmitter = require('events');
-var emitter = new EventEmitter();
+//注释:node最大的绑定数目默认是10个超出会有异常
+const EventEmitter = require('events');
+let emitter = new EventEmitter();
 
 function eat(who) {
     console.log(who + '吃东西');
@@ -14,8 +14,18 @@ function drink(who) {
 const HUNGRY = '饿了';
 const THIRSTY = '口渴了';
 
-// emitter.on(HUNGRY, eat);
-// emitter.emit(HUNGRY, '我');
+emitter.on(HUNGRY, eat);
+emitter.on(HUNGRY, eat);
+emitter.on(HUNGRY, eat);
+emitter.on(HUNGRY, eat);
+emitter.on(HUNGRY, eat);
+emitter.on(HUNGRY, eat);
+emitter.on(HUNGRY, eat);
+emitter.on(HUNGRY, eat);
+emitter.on(HUNGRY, eat);
+emitter.on(HUNGRY, eat);
+emitter.on(HUNGRY, eat);
+emitter.emit(HUNGRY, '我');
 // emitter.emit(HUNGRY, '我');
 
 // emitter.once(HUNGRY, eat);

@@ -8,4 +8,4 @@ var emitter = new EventEmitter();
 - emit 触发时间
 - removeListener() 删除事件类型上一个订阅
 - removeAllListener() 删除事件类型上所有订阅
-- 默认最多10个订阅
+- 默认最多10个订阅 setMaxListeners()可以修改
