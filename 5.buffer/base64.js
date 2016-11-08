@@ -1,6 +1,3 @@
-// 进制转换
-// 任意进制转换成10进制
-
 // console.log(parseInt('11', 2));
 // console.log(parseInt('11111111', 2));
 //
