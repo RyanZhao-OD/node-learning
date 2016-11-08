@@ -1,30 +1,26 @@
-var fs = require('fs');
+const fs = require('fs');
 //创建目录
 // fs.mkdirSync('a/b/c/d');  //如果目录a、b、c不存在，则报错
+//如果目录a、b、c不存在，则报错
+// fs.mkdir('./a/b/c/d', function(error) {
+//     console.log(error);
+// });
 
-// console.log('a/b/c/d');
-// fs.mkdir();
+
+// function myMakedirSync(dir) {
+//     var arr = dir.split('/');
+//     var path;
+//     for (var i = 0; i < arr.length; i++) {
+//         path = arr.slice(0, i + 1).join('/');
+//         if(!fs.existsSync(path)) {
+//             fs.mkdirSync(path);
+//         }
+//     }
+// }
+//
+// myMakedirSync('./a/b/c/d');
 
 
-// p 'a/b/c/d'
-// arr ['a','b', 'c' , 'd']
-// path a   ['a']
-// path a/b  ['a', 'b']
-// path a/b/c  ['a', 'b', 'c']
-// path a/b/c/d  ['a', 'b', 'c', 'd']
-
-function makepSync(p) {
-    var arr = p.split('/');
-    var path;
-    for (var i = 0; i < arr.length; i++) {
-        path = arr.slice(0, i + 1).join('/');
-        if(!fs.existsSync(path)) {
-            fs.mkdirSync(path);
-        }
-    }
-}
-
-// makepSync('a/b/c/d');
 // function makep
 var isFinished = false;
 function makep(p) {
@@ -46,8 +42,8 @@ function makep(p) {
         }
     });
 }
-makep('a/b/c/d');
+// makep('a/b/c/d');
 
-// fs.exists('testdir', function(exists) {   //没有error参数
-//
-// });
+fs.exists('./a/b/c', function(exists) {   //没有error参数
+
+});

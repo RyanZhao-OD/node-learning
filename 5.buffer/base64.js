@@ -69,7 +69,7 @@ function base64(str) {
     });
     return result;
 }
-console.log(base64('呵呵哈哈'));
+console.log(base64('http://image.zhangxinxu.com/image/emtion/hum.png'));
 
 
 //2.将三个8位的字节变成4个字节6位
