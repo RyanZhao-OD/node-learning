@@ -63,3 +63,9 @@ options:flag:'a'追加
         console.log(error);
     });
     ```
+- 判断目录是否存在
+    ```js
+    fs.exists('./a/b/c', function(exists) {   //没有error参数
+        console.log(exists);  // true
+    });
+    ```

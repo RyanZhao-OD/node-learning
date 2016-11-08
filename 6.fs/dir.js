@@ -45,5 +45,5 @@ function makep(p) {
 // makep('a/b/c/d');
 
 fs.exists('./a/b/c', function(exists) {   //没有error参数
-
+    console.log(exists);  // true
 });
