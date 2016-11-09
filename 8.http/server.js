@@ -1,6 +1,6 @@
-var http = require('http');
+const http = require('http');
 
-var server = http.createServer(function (req, res) {
+let server = http.createServer(function (req, res) {
     // req 客户端的请求
     // res 服务端的响应
     // res.writeHeader(200, {'Content-Type': 'text/plain;charset=utf8'});

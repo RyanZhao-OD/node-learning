@@ -1,9 +1,7 @@
-var http = require('http');
-var fs = require('fs');
+const http = require('http');
+const fs = require('fs');
 
-
-
-var server = http.createServer(function(req, resp){
+let server = http.createServer(function(req, resp){
     if(req.url == '/') {
         resp.setHeader('Content-Type', 'text/html;charset=utf8');
         fs.createReadStream('./index.html').pipe(resp);
@@ -12,7 +10,6 @@ var server = http.createServer(function(req, resp){
         resp.setHeader('Cache-control', 'max-age=3');
         resp.setHeader('Content-Type', 'application/x-javacript;charset=utf8');
         fs.createReadStream('./script/test.js').pipe(resp);
-
 
     } else {
         resp.statusCode = 404;
