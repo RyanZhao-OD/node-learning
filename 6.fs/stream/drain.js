@@ -1,18 +1,20 @@
-var fs = require('fs');
-var ws = fs.createWriteStream('./name1.txt',{highWaterMark:5});
+const fs = require('fs');
+let ws = fs.createWriteStream('../test/drain.txt', {
+    highWaterMark: 5
+});
 //写10个数，每次要保证写入1个后，在写入一个
 var index = 0;
-function w() {
+function write() {
     var flag = true;//默认可以写入
     //最大不能超过10  并且flag不能为false
-    while (flag&&index<10){
-        flag = ws.write(''+index++);
+    while (flag && index<10){
+        flag = ws.write('' + index++);
     }
 }
-w();
+write();
 ws.on('drain',function () { //如果肚子没吃满，消化后也不会触发drain
-    console.log('干了');
-    w();
+    console.log('drain');
+    write();
 });
 
 //写内存相当于一个嘴巴，这个嘴里只能装2个馒头，(highWaterMark)

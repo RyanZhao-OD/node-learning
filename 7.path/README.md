@@ -34,4 +34,5 @@ console.log(path.join(__dirname, 'a/../b'));  // H:\04.learning\node-learning\7.
 console.log(require.resolve('./xxx.js'));  // 对一个已经存在的文件 解析绝对路径, 不存在就报错
 console.log(path.resolve('./xxx.js'));     // 不管文件是否存在，解析绝对路径
 ```
+
 ## 
