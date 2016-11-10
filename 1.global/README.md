@@ -1,3 +1,4 @@
+
 ##global对象
 global对象  在任何地方都能访问
 
@@ -56,27 +57,37 @@ setImmediate是一个异步方法，并且后面不能指定时间
 nextTick > setImmediate > setTimeout > io
 
 ```javascript
-setImmediate(function () {
-    console.log('setImmediate1');
-    process.nextTick(function () {
-        console.log('nextTick1');
-    })
+setImmediate(function A() {
+    console.log('a');
+    process.nextTick(function B() {
+        console.log('b');
+        setImmediate(function C() {
+            console.log('c');
+        });
+    });
 });
-process.nextTick(function () {
-    console.log('nextTick2');
-    setImmediate(function () {
-        console.log('setImmediate2');
-    })
+process.nextTick(function D() {
+    console.log('d');
+    setImmediate(function E() {
+        console.log('e');
+        process.nextTick(function F() {
+            console.log('f');
+        });
+    });
 });
-setImmediate(function () {
-    console.log('setImmediate3');
+setImmediate(function G() {
+    console.log('g');
 });
 ```
 运行结果：
 ```js
-nextTick2
-setImmediate1
-setImmediate3
-setImmediate2
-nextTick1
+d
+a
+g
+e
+b
+f
+c
 ```
+
+![profile](../resource/nextTick.png)

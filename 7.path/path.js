@@ -23,3 +23,5 @@ console.log(path.join(__dirname, 'a/../b')); // H:\04.learning\node-learning\7.p
 // path.resolve('./xxx.js');  //不管文件是否存在，解析绝对路径
 // console.log(require.resolve('./xxx.js'));
 console.log(path.resolve('./xxx.js'));
+
+console.log(path.normalize('a/b/c/../////d'));
