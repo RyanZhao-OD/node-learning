@@ -35,7 +35,6 @@ global对象  在任何地方都能访问
 __dirname;             // 文件目录不会变
 process.cwd();        //current working directory在哪里执行(可变)
 process.chdir('..');  //change directory
-
 ```
 
 ```js
@@ -46,6 +45,14 @@ console.log(process.cwd());  // H:\04.learning
 console.log(__dirname);      // H:\04.learning\node-learning\global
 ```
 
+- 参数
+```js
+process.argv;
+/*
+[ 'C:\\00.software\\nodejs\\node.exe',
+   'H:\\04.learning\\node-learning\\1.global\\global.js' ]
+   */
+```
 
 * nextTick()方法
 

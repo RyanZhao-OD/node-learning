@@ -19,6 +19,7 @@
 // console.log(module);
 // console.log(require);
 
+console.log(global.process.argv);
 console.log(process.cwd()); //在哪里执行(可变)
 console.log(__dirname);
 process.chdir('..');
