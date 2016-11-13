@@ -15,7 +15,7 @@
     服务器再把客户端需要的资源返回，客户端用得到的资源来实现动态效果或修改DOM结构。
     
 ## http缓存
-![profile](../resource/http-cache.jpg)
+![profile](../resource/http-cache.png)
 
 - expire
     ```js
