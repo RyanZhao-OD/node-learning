@@ -1,0 +1,24 @@
+{
+  "name": "node-learning",
+  "version": "1.0.0",
+  "description": "![profile](resource/profile.png)\r ## node的event loop\r ![profile](resource/event-loop-node.png)\r > Node.js也是单线程的Event Loop，但是它的运行机制不同于浏览器环境。Node.js的运行机制如下。\r （1）V8引擎解析JavaScript脚本。\r （2）解析后的代码，调用Node API。\r （3）libuv库负责Node API的执行。它将不同的任务分配给不同的线程，形成一个Event Loop（事件循环），以异步的方式将任务的执行结果返回给V8引擎。\r （4）V8引擎再将结果返回给用户。",
+  "main": "index.js",
+  "dependencies": {
+    "mime": "^1.3.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryanzhao1993/node-learning.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ryanzhao1993/node-learning/issues"
+  },
+  "homepage": "https://github.com/ryanzhao1993/node-learning#readme"
+}
