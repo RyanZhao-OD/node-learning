@@ -1,7 +1,8 @@
 const http = require('http');
-let server = http.createServer(function(req, resp) {
-    console.log(req.url);      //
-    console.log(req.method);   // GET
-    console.log(req.headers);
+let server = http.createServer(function(request, response) {
+    console.log(request.url);      //
+    console.log(request.method);   // GET
+    console.log(request.headers);
+    response.end('hehe');
 });
-server.listen(8888, 'localhost');
+server.listen(8080, 'localhost');

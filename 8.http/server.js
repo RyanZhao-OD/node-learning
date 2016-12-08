@@ -64,15 +64,15 @@ console.log(http.STATUS_CODES);
 //     '510': 'Not Extended',
 //     '511': 'Network Authentication Required' }
 
-let server = http.createServer(function (req, res) {
+let server = http.createServer(function (request, response) {
     // req 客户端的请求
     // res 服务端的响应
     // res.writeHeader(200, {'Content-Type': 'text/plain;charset=utf8'});
-    res.setHeader('Content-Type', 'text/plain;charset=utf8');
-    res.statusCode = 200;
-    res.write('hello ');
-    res.write('呵呵 ');
-    res.end('end');
+    response.setHeader('Content-Type', 'text/plain;charset=utf8');
+    response.statusCode = 200;
+    response.write('hello ');
+    response.write('呵呵 ');
+    response.end('end');
 });
 
-// server.listen(8888, 'localhost');
+server.listen(8080, 'localhost');

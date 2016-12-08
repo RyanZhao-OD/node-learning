@@ -29,6 +29,7 @@
 - Etag
     服务器返回Etag, 客户端发送if-none-match
     
-## 200(from cache)和304区别??
-> 200(From cache)是直接点击链接访问，输入网址按回车访问触发(这两种情况都不会有Etag)；
-> 304(Not Modified)是刷新页面时触发，或是设置了长缓存、或当Etag没有移除时触发。
+## 200(from cache)和304区别
+
+200(From cache)是直接点击链接访问，输入网址按回车访问触发(这两种情况都不会有Etag)；
+304(Not Modified)是刷新页面时触发，或是设置了长缓存、或当Etag没有移除时触发。

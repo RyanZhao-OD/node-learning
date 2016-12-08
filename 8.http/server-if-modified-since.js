@@ -1,21 +1,27 @@
 const http = require('http');
-let fs = require('fs');
-http.createServer(function (req,res) {
-    if(req.url == '/'){
-        res.setHeader('Content-Type','text/html;charset=utf8');
-        fs.createReadStream('./index.html').pipe(res);
-    }else if(req.url == '/index.js'){
-        let timer = fs.statSync('./index.js').ctime.toUTCString();
-        let ctime = req.headers['if-modified-since']; //上一次修改时间
+const fs = require('fs');
+
+http.createServer(function (request, response) {
+    if (request.url == '/'){
+        response.setHeader('Content-Type','text/html; charset=utf8');
+        fs.createReadStream('./index.html').pipe(response);
+
+    } else if (request.url == '/script/test.js'){
+        console.log(11);
+
+        let timer = fs.statSync('./script/test.js').ctime.toUTCString();
+        let ctime = request.headers['if-modified-since']; //上一次修改时间
+
         if(ctime && (timer == ctime)) { //缓存的时间和当前修改过的时间相同，才会调用缓存
-            res.statusCode = 304;
-            res.end('');
+            response.statusCode = 304;
+            response.end('');
         } else {
-            res.setHeader('Last-Modified', timer);
-            fs.createReadStream('./index.js').pipe(res);
+            response.setHeader('Last-Modified', timer);
+            fs.createReadStream('./script/test.js').pipe(response);
         }
-    }else{
-        res.statusCode = 404;
-        res.end('not found');
+
+    } else {
+        response.statusCode = 404;
+        response.end('not found');
     }
-}).listen(8888);
+}).listen(8080);
