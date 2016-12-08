@@ -9,6 +9,7 @@ http.createServer(function (request, response) {
     } else if (request.url == '/script/test.js'){
         console.log(11);
 
+        response.setHeader('Content-Type', 'application/x-javacript; charset=utf8');
         let timer = fs.statSync('./script/test.js').ctime.toUTCString();
         let ctime = request.headers['if-modified-since']; //上一次修改时间
 

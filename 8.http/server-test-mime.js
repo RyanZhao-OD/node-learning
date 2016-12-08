@@ -4,20 +4,20 @@ const path = require('path');
 const mime = require('mime');
 const url = require('url');
 
-http.createServer(function (req, res) {
-    let pathname = url.parse(req.url, true).pathname;
+http.createServer(function (request, response) {
+    let pathname = url.parse(request.url, true).pathname;
     if(pathname == '/') {
-        res.setHeader('Content-Type','text/html;charset=utf8');
+        response.setHeader('Content-Type','text/html;charset=utf8');
         fs.createReadStream('./index.html').pipe(res);
     } else {
         fs.exists('.' + pathname, function (exists) {
             if(exists){
-                res.setHeader('Content-Type', mime.lookup(pathname) + ';charset=utf8');
-                fs.createReadStream('.' + pathname).pipe(res);
+                response.setHeader('Content-Type', mime.lookup(pathname) + ';charset=utf8');
+                fs.createReadStream('.' + pathname).pipe(response);
             } else {
-                res.statusCode = 404;
-                res.end('not found');
+                response.statusCode = 404;
+                response.end('not found');
             }
         });
     }
-}).listen(3001);
+}).listen(8080);

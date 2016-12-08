@@ -9,3 +9,6 @@ var crypto  = require('crypto');  // node的加密方法
 
 console.log(crypto.createHash('md5').update('123456').digest('hex'));
 console.log(crypto.createHash('md5').update('123456').digest('base64'));  // 不够位数 补==
+console.log(crypto.createHash('md5').update('1').digest('hex'));
+
+console.log(new Buffer('Z'));

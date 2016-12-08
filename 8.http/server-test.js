@@ -6,20 +6,20 @@ const mime = {
     '.css':'text/css',
     '.js':'application/x-javascript'
 };
-http.createServer(function (req, res) {
-    if(req.url == '/') {
-        res.setHeader('Content-Type','text/html;charset=utf8');
-        fs.createReadStream('./index.html').pipe(res);
+http.createServer(function (request, response) {
+    if(request.url == '/') {
+        response.setHeader('Content-Type','text/html;charset=utf8');
+        fs.createReadStream('./index.html').pipe(response);
     } else {
         //req.url  /index.js  /favicon.ico
-        fs.exists('.' + req.url, function (exists) {
+        fs.exists('.' + request.url, function (exists) {
             if(exists){
-                res.setHeader('Content-Type', mime[path.extname(req.url)] + ';charset=utf8');
-                fs.createReadStream('.' + req.url).pipe(res);
+                response.setHeader('Content-Type', mime[path.extname(request.url)] + ';charset=utf8');
+                fs.createReadStream('.' + request.url).pipe(response);
             } else {
-                res.statusCode = 404;
-                res.end('not found');
+                response.statusCode = 404;
+                response.end('not found');
             }
         });
     }
-}).listen(3001);
+}).listen(8080);
