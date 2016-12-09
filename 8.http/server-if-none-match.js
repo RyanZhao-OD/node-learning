@@ -12,15 +12,15 @@ http.createServer(function (request, response) {
         response.setHeader('Content-Type', 'application/x-javacript; charset=utf8');
 
         let data = fs.readFileSync('./script/test.js');
-        data = crypto.createHash('md5').update(data).digest('base64');
+        let etag = crypto.createHash('md5').update(data).digest('base64');
 
         //都能获取一个最新值和上次设置的比  if-none-match
-        let match = request.headers['if-none-match']; //上一次  ***
-        if(match && (match == data)) {
+        let ifNoneMatch = request.headers['if-none-match']; //上一次  ***
+        if(ifNoneMatch && (ifNoneMatch == etag)) {
             response.statusCode = 304;
             response.end('');
         } else {
-            response.setHeader('Etag', data);//第一次访问时把内容进行加密放到头部
+            response.setHeader('Etag', etag);//第一次访问时把内容进行加密放到头部
             fs.createReadStream('./script/test.js').pipe(response);
         }
     } else {

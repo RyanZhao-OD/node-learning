@@ -1,1 +1,1 @@
-console.log('test.js aabc');
+console.log('test.js');
