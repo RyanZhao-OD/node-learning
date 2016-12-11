@@ -16,8 +16,6 @@ let server = http.createServer(function(request, response){
         // response.setHeader('Expires', 0);
         // response.setHeader('Cache-control', 'no-cache');
 
-        // response.setHeader('Expires', new Date(new Date() + 3000).toLocaleString());
-
         fs.createReadStream('./script/test.js').pipe(response);
 
     } else {

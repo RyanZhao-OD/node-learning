@@ -7,12 +7,11 @@ http.createServer(function (request, response) {
         fs.createReadStream('./index.html').pipe(response);
 
     } else if (request.url == '/script/test.js'){
-        console.log('------');
 
         response.setHeader('Content-Type', 'application/x-javacript; charset=utf8');
         let ctime = fs.statSync('./script/test.js').ctime.toUTCString();
         let ifModifiedSince = request.headers['if-modified-since']; //上一次修改时间
-
+        console.log('------');
         console.log(ctime);
         console.log(ifModifiedSince);
 

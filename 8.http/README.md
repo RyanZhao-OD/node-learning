@@ -18,6 +18,7 @@
 ![profile](../resource/http-cache.png)
 
 - expire
+
     ```js
     resp.setHeader('Expires', new Date(new Date() + 3000).toUTCString());
     resp.setHeader('Cache-control', 'max-age=3');

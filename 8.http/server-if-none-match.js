@@ -12,7 +12,7 @@ http.createServer(function (request, response) {
         response.setHeader('Content-Type', 'application/x-javacript; charset=utf8');
 
         let data = fs.readFileSync('./script/test.js');
-        let etag = crypto.createHash('md5').update(data).digest('base64');
+        let etag = crypto.createHash('md5').update(data).digest('hex');
 
         //都能获取一个最新值和上次设置的比  if-none-match
         let ifNoneMatch = request.headers['if-none-match']; //上一次  ***

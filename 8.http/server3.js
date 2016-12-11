@@ -9,6 +9,9 @@ let server = http.createServer(function(request, response){
             console.log(data);
             response.end(data);
         });
+    } else {
+        response.statusCode = 404;
+        response.end('404 呵呵');
     }
 });
 
