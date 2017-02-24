@@ -9,7 +9,13 @@ http.createServer(function (request, response) {
     } else if (request.url == '/script/test.js'){
         //内容频繁的更改，精确不到秒，很多服务器修改时间不准确
         //判断文件中的内容，比较上一次的内容，和这一次的内容，如果有区别说明更改过，发送一个最新的内容，给浏览器端
-        response.setHeader('Content-Type', 'application/x-javacript; charset=utf8');
+
+		/**
+		 * Last-Modified标注的最后修改只能精确到秒级，如果某些文件在1秒钟以内，被修改多次的话，它将不能准确标注文件的修改时间
+		 * 如果某些文件会被定期生成，当有时内容并没有任何变化，但Last-Modified却改变了，导致文件没法使用缓存
+		 * 有可能存在服务器没有准确获取文件修改时间，或者与代理服务器时间不一致等情形
+		 */
+		response.setHeader('Content-Type', 'application/x-javacript; charset=utf8');
 
         let data = fs.readFileSync('./script/test.js');
         let etag = crypto.createHash('md5').update(data).digest('hex');
